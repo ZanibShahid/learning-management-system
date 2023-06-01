@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %} IPS | Class Detail {% endblock %}
+{% block body %}
+
+<h1>Class Deatails : {{ clas.name }}</h1>
+
+<br>
+<br>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-table">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-center mb-0 datatable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th class="text-right">Remove Students</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                {% for student in students %}
+                                <td>{{ student.id }}</td>
+                                <td>
+                                    <h2 class="table-avatar">
+                                        <a href="student-details.html" class="avatar avatar-sm mr-2"><img
+                                                class="avatar-img rounded-circle"
+                                                src="/media/{{ student.image }}"
+                                                alt="User Image"></a>
+                                        <a href="#">{{ student.firstname }}</a>
+                                    </h2>
+                                </td>
+                                <td class="text-right">
+                                    <div class="actions">
+                                        <a href="#"
+                                            class="btn btn-sm bg-success-light mr-2">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Display Teachers -->
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-table">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-center mb-0 datatable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th class="text-right">Remove Student</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                {% for teacher in teachers %}
+                                <td>{{ teacher.id }}</td>
+                                <td>
+                                    <h2 class="table-avatar">
+                                        <a href="#" class="avatar avatar-sm mr-2"><img
+                                                class="avatar-img rounded-circle"
+                                                src="/media/{{ teacher.image }}"
+                                                alt="User Image"></a>
+                                        <a href="#">{{ teacher.firstname }}</a>
+                                    </h2>
+                                </td>
+                                <td class="text-right">
+                                    <a href="#" class="btn btn-dark">
+                                        Assign To Class
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

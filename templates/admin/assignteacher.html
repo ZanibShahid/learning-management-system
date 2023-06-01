@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} IPS | Students {% endblock %}
+{% load index %}
+{% block body %}
+<div class="container">
+<center>
+        <h1>Assign to Class</h1>
+        <form action="{% url 'assignteacher' %}" method="post" class="d-flex">
+            {% csrf_token %}
+            <input type="hidden" name="teacher" value="{{ teacher.id }}">
+            <select name="teacherclass" class="form-control" required>
+                <option value="">Select Class</option>
+                {% for class in classes %}
+                <option value="{{ class.id }}">{{ class.name|title }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">Assign</button>
+        </form>
+    </center>
+    <div>
+
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% block title %} IPS | Edit Student {% endblock %}
+{% block body %}
+<div class="main-wrapper">
+   <div class="">
+      <div class="content container">
+         <div class="page-header">
+            <div class="row align-items-center">
+               <div class="col">
+                  <h3 class="page-title mt-5">Edit Student Record</h3>
+                  <ul class="breadcrumb">
+                     <li class="breadcrumb-item"><a href="students.html">Students</a></li>
+                     <li class="breadcrumb-item active">Edit Student Record</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="card">
+                  <div class="card-body">
+                     <form enctype="multipart/form-data" method="post" action="{% url 'login' %}studentedit/{{student.id}}">
+                        {% csrf_token %}
+                        <div class="row">
+                           <div class="col-12">
+                              <h5 class="form-title"><span>Student Information</span></h5>
+                           </div>
+                           <div class="col-12 col-sm-6">
+                              <div class="form-group">
+                                 <label>First Name</label>
+                                 <input type="text" name="firstname" class="form-control"
+                                    value="{{ student.firstname }}" required>
+                              </div>
+                           </div>
+                           <div class="col-12 col-sm-6">
+                              <div class="form-group">
+                                 <label>Last Name</label>
+                                 <input type="text" name="lastname" class="form-control" value="{{ student.lastname }}" required>
+                               </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Student Id</label>
+                                    <input type="text" name="studentId" value="{{ student.studentId }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Gender</label>
+                                    <select name="gender" class="form-control" required>
+                                       <option value="{{ student.gender }}" selected>{{ student.gender }}</option>
+                                       <option value="">Select Gender</option>
+                                       <option value="Female">Female</option>
+                                       <option value="Male">Male</option>
+                                       <option value="Others">Others</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Date of Birth</label>
+                                    <div>
+                                       <input type="date" value="{{ student.dob }}" name="dob" class="form-control" required>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Class No</label>
+                                    <select name="classNo" class="form-control" required>
+                                       <option value="{{ student.classNo }}" selected>{{ student.classNo }}</option>
+                                       <option value="">Assign Class</option>
+                                       {% for clas in classes %}
+                                       <option value="{{ clas.name }}">{{ clas.name }}</option>
+                                       {% endfor %}
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Religion</label>
+                                    <input type="text" name="religion" value="{{ student.religion }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Mobile Number</label>
+                                    <input type="text" name="phone" value="{{ student.phone }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Admission Number</label>
+                                    <input type="text" name="admissionNo" value="{{ student.admissionNo }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Section</label>
+                                    <input type="text" name="section" value="{{ student.section }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="text" name="password" class="form-control">
+                                 </div>
+                              </div>
+                              <div class="col-12">
+                                 <h5 class="form-title"><span>Parent Information</span></h5>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Father's Name</label>
+                                    <input type="text" name="fatherName" value="{{ student.fatherName }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Father's Occupation</label>
+                                    <input type="text" name="fatherOccupation" value="{{ student.fatherOccupation }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Father's Mobile</label>
+                                    <input type="text" name="fatherMobile" value="{{ student.fatherMobile }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Mother's Name</label>
+                                    <input type="text" name="motherName" value="{{ student.motherName }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Mother's Occupation</label>
+                                    <input type="text" name="motherOccupation" value="{{ student.motherOccupation }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Mother's Mobile</label>
+                                    <input type="text" name="motherMobile" value="{{ student.motherMobile }}" class="form-control" required>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Present Address</label>
+                                    <textarea class="form-control" name="presentAddress" required>{{ student.presentAddress }}</textarea>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-sm-6">
+                                 <div class="form-group">
+                                    <label>Permanent Address</label>
+                                    <textarea class="form-control" name="permanentAddress" required>{{ student.permanentAddress }}</textarea>
+                                 </div>
+                              </div>
+                              <div class="d-grid gap-1 mt-4">
+                                 <button class="btn btn-lg btn-dark" type="submit">Submit</button>
+                              </div>
+                           </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

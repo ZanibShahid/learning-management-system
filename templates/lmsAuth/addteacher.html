@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% block title %} IPS | Add Teacher {% endblock %}
+{% block body %}
+<div class="main-wrapper">
+    <div>
+        <div class="content container">
+
+            <div class="page-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="page-title mt-4">Add Teachers</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="teachers.html">Teachers</a></li>
+                            <li class="breadcrumb-item active">Add Teachers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form enctype="multipart/form-data" method="post" action="{% url 'login' %}addteacherdetail/">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="form-title"><span>Basic Details</span></h5>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Teacher ID</label>
+                                            <input type="text" name="teacherId" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" name="name" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Gender</label>
+                                            <select class="form-control" name="gender" required>
+                                                <option value="">Select Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Others">Others</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Date of Birth</label>
+                                            <input type="date" name="dob" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Mobile</label>
+                                            <input type="text" name="phone" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Qualification</label> 
+                                            <input class="form-control" name="qualification" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Experience</label>
+                                            <input class="form-control" name="experience" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Department</label>
+                                            <input class="form-control" name="department" type="text" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                           <label>Teacher Image</label>
+                                           <input type="file" name="image" class="form-control" required>
+                                        </div>
+                                     </div>
+                                     <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                           <label>Education</label>
+                                           <textarea class="form-control" name="education" required></textarea>
+                                        </div>
+                                     </div>
+                                     <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                           <label>Certificates</label>
+                                           <textarea class="form-control" name="certificate" ></textarea>
+                                        </div>
+                                     </div>
+                                     <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                           <label>Skills</label>
+                                           <textarea class="form-control" name="skills"></textarea>
+                                        </div>
+                                     </div>
+                                    <div class="col-12">
+                                        <h5 class="form-title"><span>Login Details</span></h5>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email ID</label>
+                                            <input type="email" name="email" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="text" name="password" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <h5 class="form-title"><span>Address</span></h5>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                           <label>Present Address</label>
+                                           <textarea class="form-control" name="presentAddress" required></textarea>
+                                        </div>
+                                     </div>
+                                     <div class="col-12 col-sm-6">
+                                        <div class="form-group">
+                                           <label>Permanent Address</label>
+                                           <textarea class="form-control" name="permanentAddress" required></textarea>
+                                        </div>
+                                     </div>
+                                     <div class="d-grid gap-1 mt-4">
+                                         <button class="btn btn-lg btn-dark" type="submit">Submit</button>
+                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

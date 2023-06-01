@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %} IPS | Teachers {% endblock %}
+{% load index %}
+{% block body %}
+<div class="main-wrapper">
+    <div class="">
+        <div class="content container">
+            <div class="page-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="page-title mt-4">Teachers</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Teacher</li>
+                        </ul>
+                    </div>
+                    <div class="col-auto text-right float-right ml-auto">
+                        <a href="{%  url 'login' %}addteacher/" class="btn btn-dark"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card card-table">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-center mb-0 datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Qualification</th>
+                                            <th>Experience</th>
+                                            <th>Department</th>
+                                            <th>Mobile Number</th>
+                                            <th>Address</th>
+                                            <th>Assign</th>
+                                            <th class="text-right">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <tr>
+                                            {% for teacher in teachers %}
+                                            <td>{{ teacher.id }}</td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="#" class="avatar avatar-sm mr-2"><img
+                                                            class="avatar-img rounded-circle"
+                                                            src="/media/{{ teacher.image }}"
+                                                            alt="User Image"></a>
+                                                    <a href="#">{{ teacher.firstname }}</a>
+                                                </h2>
+                                            </td>
+                                            <td>{{ teacher.qualification }}</td>
+                                            <td>{{ teacher.experience }}</td>
+                                            <td>{{ teacher.department }}</td>
+                                            <td>{{ teacher.phone }}</td>
+                                            <td>{{ teacher.presentAddress }}</td>
+                                            <td>
+                                                <!-- <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#assigntachermodal">
+                                                    Assign To Class
+                                                </button> -->
+                                                <a href="{% url 'assignteacherpage' teacher.id %}" class="btn btn-dark">
+                                                    Assign To Class
+                                                </a>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class="actions">
+                                                    <a href="{% url 'login' %}teacheredit/{{ teacher.id }}"
+                                                        class="btn btn-sm bg-success-light mr-2">
+                                                        <i class="fas fa-pen"></i>
+                                                    </a>
+                                                    <a href="#" class="btn btn-sm bg-danger-light">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}
