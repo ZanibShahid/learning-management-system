@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% block body %}
+{% for teacher in teacher %}
+<div class="content container-fluid mr-5 mt-5">
+    <div class="page-header">
+        <div class="row">
+            <div class="col ">
+                <h3 class="page-title">Profile</h3>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Profile</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="profile-header">
+                <div class="row align-items-center">
+                    <div class="col-auto profile-image">
+                        <a href="{% url 'teacherprofile' teacher.id %}">
+                            <img class="rounded-circle" alt="User Image" src="{{teacher.image.url}}">
+                        </a>
+                    </div>
+                    <div class="col ml-md-n2 profile-user-info">
+                        <h4 class="user-name mb-0">{{teacher.firstname|capfirst}}</h4>
+                        <h6 class="text-muted">Qualification: {{teacher.qualification}}</h6>
+                        <div class="user-Location"><i class="fas fa-map-marker-alt"></i> {{teacher.presentAddress}}</div>
+                        <div class="about-text">{{teacher.phone}}</div>
+                    </div>
+                    <div class="col-auto profile-btn">
+                        <a href="{% url 'teacheredit' teacher.id %}" class="btn btn-primary">
+                           Edit
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-menu">
+                <ul class="nav nav-tabs nav-tabs-solid">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#per_details_tab">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#password_tab">Password</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content profile-tab-cont">
+                <div class="tab-pane fade show active" id="per_details_tab">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title d-flex justify-content-between">
+                                        <span>Basic Details</span>
+                                        <a class="edit-link" href="{% url 'teacheredit' teacher.id %}"><i class="far fa-edit mr-1"></i>Edit</a>
+                                    </h5>
+                                    <div class="row">
+                                       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Teacher ID</p>
+                                       <p class="col-sm-9">{{teacher.teacherId|capfirst}}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Name</p>
+                                        <p class="col-sm-9">{{teacher.firstname|capfirst}}</p>
+                                    </div>
+                                    <div class="row">
+                                       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Date of Birth</p>
+                                       <p class="col-sm-9">{{teacher.dob}}</p>
+                                    </div>
+                                    <div class="row">
+                                       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Gender</p>
+                                       <p class="col-sm-9">{{teacher.gender}}</p>
+                                    </div>
+                                    <div class="row">
+                                       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Mobile</p>
+                                       <p class="col-sm-9">{{teacher.phone}}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Qualification</p>
+                                        <p class="col-sm-9">{{teacher.qualification}}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Expericence</p>
+                                        <p class="col-sm-9">{{teacher.experience}}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Department</p>
+                                        <p class="col-sm-9">{{teacher.admissionNo}}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Education</p>
+                                        <p class="col-sm-9">{{teacher.section}}</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Certificate</p>
+                                        <p class="col-sm-9">{{teacher.in_class}}</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title d-flex justify-content-between">
+                                        <span>Login Details</span>
+                                    </h5>
+                                    <div class="row">
+                                       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Email</p>
+                                       <p class="col-sm-9">{{teacher.email}}</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title d-flex justify-content-between">
+                                        <span>Address</span>
+                                    </h5>
+                                    <div class="row">
+                                       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Present Address</p>
+                                       <p class="col-sm-9">{{teacher.presentAddress}}</p>
+                                    </div>
+                                    <div class="row">
+                                       <p class="col-sm-3 text-muted text-sm-right mb-0 mb-sm-3">Permanent Address</p>
+                                       <p class="col-sm-9">{{teacher.permanentAddress}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title d-flex justify-content-between">
+                                        <span>Account Status</span>
+                                        <a class="edit-link" href="#" data-toggle="modal" data-target="#statusModal"><i class="far fa-edit mr-1"></i> Edit</a>
+                                    </h5>
+                                    <button class="btn btn-success" type="button" id="statusButton"><i class="fe fe-check-verified"></i> Active</button>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                   <h5 class="card-title d-flex justify-content-between">
+                                      <span>Skills </span>
+                                      <a class="edit-link" href="{% url 'teacheredit' teacher.id %}"><i class="far fa-edit mr-1"></i> Edit</a>
+                                   </h5>
+                                   <div class="skill-tags">
+                                      <span>{{teacher.skills}}</span>
+                                   </div>
+                                </div>
+                             </div>
+                        </div>
+                        
+                        <!-- Status Modal -->
+                        <div class="modal fade" id="statusModal" tabindex="-1" role="dialog" aria-labelledby="statusModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="statusModalLabel">Change Account Status</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="statusForm" method="POST" action="{% url 'teacherprofile' teacher.id %}">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <label for="status">Status:</label>
+                                                <select class="form-control" id="status" name="status">
+                                                    <option value="active">Active</option>
+                                                    <option value="inactive">Inactive</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" form="statusForm" class="btn btn-primary">Save Changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div id="password_tab" class="tab-pane fade">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Change Password</h5>
+                            <div class="row">
+                                <div class="col-md-10 col-lg-6">
+                                    <form method="post" action="#">
+                                       <div class="form-group">
+                                          <label>Old Password</label>
+                                          <input type="password" class="form-control">
+                                       </div>
+                                       <div class="form-group">
+                                          <label>New Password</label>
+                                          <input type="password" class="form-control">
+                                       </div>
+                                       <div class="form-group">
+                                          <label>Confirm Password</label>
+                                          <input type="password" class="form-control">
+                                       </div>
+                                       <button class="btn btn-primary" type="submit">Save Changes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock body %}

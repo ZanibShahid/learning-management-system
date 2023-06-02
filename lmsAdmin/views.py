@@ -332,3 +332,15 @@ def EditClassView(request,id):
         messages.success(request, f'{schoolclass.name} Updated Succesfully Successfully')
         return redirect('/admin/')
     return redirect('/admin/')
+
+
+# ************ Profiles ************
+def StudentProfile(request,id):
+    student = User.objects.filter(pk=id,is_teacher=False)
+    context = {'student' : student}
+    return render(request,'lmsAuth/stdprofile.html',context)
+
+def TeacherProfile(request,id):
+    teacher = User.objects.filter(pk=id)
+    context = {'teacher' : teacher}
+    return render(request,'lmsAuth/teacherprofile.html',context)

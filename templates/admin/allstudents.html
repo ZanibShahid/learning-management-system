@@ -45,11 +45,11 @@
                                             <td>{{ student.id }}</td>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="student-details.html" class="avatar avatar-sm mr-2"><img
+                                                    <a href="{% url 'stdprofile' student.id %}" class="avatar avatar-sm mr-2"><img
                                                             class="avatar-img rounded-circle"
                                                             src="/media/{{ student.image }}"
                                                             alt="User Image"></a>
-                                                    <a href="#">{{ student.firstname }}</a>
+                                                    <a href="{% url 'stdprofile' student.id %}">{{ student.firstname }}</a>
                                                 </h2>
                                             </td>
                                             <td>{{ student.classNo }}</td>

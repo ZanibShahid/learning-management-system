@@ -1,7 +1,7 @@
 from django.urls import path
 from lmsAdmin.views import AdminDashboardView,LoginView, StudentAddView,StudentAddDetailView,LoginBackendView, \
  StudentListView, StudentEditView, StudentDeleteView, TeacherAddView,TeacherAddDetailView, \
-  TeacherListView,TeacherEditView, assign_teacher, AddClassView, ClassDetailView, EditClassView, assign_teacher_page
+  TeacherListView,TeacherEditView, TeacherProfile, assign_teacher, AddClassView, ClassDetailView, EditClassView, assign_teacher_page,StudentProfile
 
 
 urlpatterns = [
@@ -31,6 +31,14 @@ urlpatterns = [
     path('editclass/<int:id>',EditClassView,name="editclass"),
     path('assign-teacher-page/<int:id>', assign_teacher_page, name="assignteacherpage"),
     path('assign-teacher/', assign_teacher, name="assignteacher"),
-    path('classdetail/<int:id>', ClassDetailView, name="classdetail")
+    path('classdetail/<int:id>', ClassDetailView, name="classdetail"),
+
+
+
+    # Profile
+    path('stdprofile/<int:id>',StudentProfile,name="stdprofile"),
+    path('teacherprofile/<int:id>',TeacherProfile,name="teacherprofile"),
+
+
 
 ]
