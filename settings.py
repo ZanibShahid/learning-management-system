@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'lmsAuth.apps.LmsauthConfig',
     'lmsAdmin.apps.LmsadminConfig',
     'django.contrib.humanize',
 ]
@@ -135,7 +134,7 @@ MESSAGE_TAGS = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AUTH_USER_MODEL = 'lmsAuth.User'
+AUTH_USER_MODEL = 'lmsAdmin.User'
 AUTHENTICATION_BACKENDS = [
-'lmsAuth.backends.EmailORIDAuthenticationBackend'
+'lmsAdmin.backends.EmailORIDAuthenticationBackend'
 ]
